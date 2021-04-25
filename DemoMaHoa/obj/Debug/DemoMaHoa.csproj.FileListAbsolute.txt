@@ -1,0 +1,13 @@
+E:\OFFICE\BMANM\DemoMaHoa\DemoMaHoa\bin\Debug\DemoMaHoa.exe.config
+E:\OFFICE\BMANM\DemoMaHoa\DemoMaHoa\bin\Debug\DemoMaHoa.exe
+E:\OFFICE\BMANM\DemoMaHoa\DemoMaHoa\bin\Debug\DemoMaHoa.pdb
+E:\OFFICE\BMANM\DemoMaHoa\DemoMaHoa\obj\Debug\DemoMaHoa.csprojAssemblyReference.cache
+E:\OFFICE\BMANM\DemoMaHoa\DemoMaHoa\obj\Debug\DemoMaHoa.Form1.resources
+E:\OFFICE\BMANM\DemoMaHoa\DemoMaHoa\obj\Debug\DemoMaHoa.Properties.Resources.resources
+E:\OFFICE\BMANM\DemoMaHoa\DemoMaHoa\obj\Debug\DemoMaHoa.csproj.GenerateResource.cache
+E:\OFFICE\BMANM\DemoMaHoa\DemoMaHoa\obj\Debug\DemoMaHoa.csproj.CoreCompileInputs.cache
+E:\OFFICE\BMANM\DemoMaHoa\DemoMaHoa\obj\Debug\DemoMaHoa.exe
+E:\OFFICE\BMANM\DemoMaHoa\DemoMaHoa\obj\Debug\DemoMaHoa.pdb
+E:\OFFICE\BMANM\DemoMaHoa\DemoMaHoa\bin\Debug\Newtonsoft.Json.dll
+E:\OFFICE\BMANM\DemoMaHoa\DemoMaHoa\bin\Debug\Newtonsoft.Json.xml
+E:\OFFICE\BMANM\DemoMaHoa\DemoMaHoa\obj\Debug\DemoMaHoa.csproj.CopyComplete

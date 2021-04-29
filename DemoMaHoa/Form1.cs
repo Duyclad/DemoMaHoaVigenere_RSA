@@ -135,11 +135,11 @@ namespace DemoMaHoa
             {
                 return;
             }
-            pictureBox1.Show();
             try
             {
                 //Create a new RSACryptoServiceProvider object.
-                using (RSACryptoServiceProvider RSA = new RSACryptoServiceProvider(int.Parse(numericUpDown1.Value.ToString())))
+                using (RSACryptoServiceProvider RSA = new RSACryptoServiceProvider(int
+                    .Parse(numericUpDown1.Value.ToString())))
                 {
                     
                     saveFileDialog1.RestoreDirectory = true;
@@ -159,7 +159,7 @@ namespace DemoMaHoa
                 //not succeed.
                 MessageBox.Show(ex.Message);
             }
-            pictureBox1.Hide();
+            
            
         }
         private string pathKeysXML = "";
@@ -246,10 +246,18 @@ namespace DemoMaHoa
 
                 tbOutput = f1.SelectedPath;
             }
+            else
+            {
+                button2.Enabled = true;
+                button4.Enabled = true;
+                button5.Enabled = true;
+                return;
+            }
             
             //pictureBox1.Show();
             btnEncryptDecrypt s = new btnEncryptDecrypt(btnEncryptClick);
             s.BeginInvoke(null, null);
+
             button2.Enabled = true;
             button4.Enabled = true;
             button5.Enabled = true;
@@ -268,10 +276,7 @@ namespace DemoMaHoa
             {
                 if (textBox6.Text.Length != 0 &&
                textBox5.Text.Length != 0 )
-                {
-                    
-                   
-                   
+                {                   
                     string inputFileName = textBox6.Text, outputFileName = "";
 
                     if (isEncryptFile)
@@ -290,26 +295,21 @@ namespace DemoMaHoa
                     {
                         string[] filePaths = Directory.GetFiles(inputFileName, "*");
 
-                        if (filePaths.Length == 0 || (filePaths.Length == 1 && (Path.GetFileName(filePaths[0]) == "Thumbs.db")))
+                        if (filePaths.Length == 0 || (filePaths.Length == 1 && 
+                            (Path.GetFileName(filePaths[0]) == "Thumbs.db")))
                         {
                             MessageBox.Show("Thư mục rỗng!");
 
                             return;
                         }
-
-
-
                         // tbt.Text = Path.GetDirectoryName(outputFileName);
                         for (int i = 0; i < filePaths.Length; i++)
                         {
                             outputFileName = tbOutput + "\\" + Path.GetFileName(filePaths[i]);
                             if (Path.GetFileName(filePaths[i]) != "Thumbs.db")
-                                RSA_Algorithm(filePaths[i], outputFileName + ".gonz", RSA.ExportParameters(true), true);
+                                RSA_Algorithm(filePaths[i], outputFileName + ".gonz", RSA.ExportParameters(false), true);
                         }
-                    }
-
-                    
-                    
+                    }                   
                 }
                 else
                 {
@@ -323,7 +323,7 @@ namespace DemoMaHoa
                 MessageBox.Show("Failed: " + ex.Message);
             }
             //  pictureBox1.Hide();
-            
+          
         }
 
 
@@ -341,15 +341,14 @@ namespace DemoMaHoa
                 long totlen = fsInput.Length;
                 int len;
                 
-
                 RSACryptoServiceProvider RSA = new RSACryptoServiceProvider();
-                RSA.ImportParameters(RSAKeyInfo); //Nhập thông tin khoá RSA (bao gồm khoá riêng)
+                RSA.ImportParameters(RSAKeyInfo); //Nhập thông tin khoá RSA 
 
                 int maxBytesCanEncrypted;
-                //RSA chỉ có thể mã hóa các khối dữ liệu ngắn hơn độ dài khóa, chia dữ liệu cho một số khối và sau đó mã hóa từng khối và sau đó hợp nhất chúng
+                //RSA chỉ có thể mã hóa các khối dữ liệu ngắn hơn độ dài khóa, chia dữ liệu cho một số khối 
+                //và sau đó mã hóa từng khối và sau đó hợp nhất chúng
                 if (isEncrypt)
                     maxBytesCanEncrypted = ((RSA.KeySize - 384) / 8) + 37;// + 7: OAEP - Đệm mã hóa bất đối xứng tối ưu
-
                 else
                     maxBytesCanEncrypted = (RSA.KeySize / 8);
                 //Read from the input file, then encrypt and write to the output file.
@@ -363,15 +362,10 @@ namespace DemoMaHoa
                     else encryptedData = RSA.Decrypt(bin, false); //Giải mã
 
                     fsCiperText.Write(encryptedData, 0, encryptedData.Length);
-                    rdlen = rdlen + len;
-
-                   
-                   
+                    rdlen = rdlen + len;                   
                 }
-
                 fsCiperText.Close(); //save file
                 fsInput.Close();
-                
             }
             catch (Exception ex)
             {
@@ -407,6 +401,13 @@ namespace DemoMaHoa
             {
 
                 tbOutput = f1.SelectedPath;
+            }
+            else
+            {
+                button6.Enabled = true;
+                button7.Enabled = true;
+                button8.Enabled = true;
+                return;
             }
            
             btnEncryptDecrypt s = new btnEncryptDecrypt(btnDecryptClick);
